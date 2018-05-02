@@ -11,6 +11,10 @@ body {
     background: transparent;
 }
 
+#p5_loading {
+  display: none;
+}
+
 #defaultCanvas0 {
   position: fixed;
   top: 0;
@@ -20,8 +24,8 @@ body {
 .main {
   padding: 35vh 50px 100px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 5vh;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 100px, repeat(3, 1fr);
   grid-column-gap: 15px;
   grid-row-gap: 15px;
   /* height: 300vh; */
@@ -29,4 +33,7 @@ body {
 }
 .title {
   grid-column: 1 / last;
+}
+p {
+  line-height: 1.65em;
 }
