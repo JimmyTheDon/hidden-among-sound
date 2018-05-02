@@ -1,0 +1,32 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: black;
+  font-family: 'Space Mono', monospace;
+  color: white;
+}
+
+/* Scrollbar Track */
+::-webkit-scrollbar-track, ::-moz-scrollbar-track {
+    background: transparent;
+}
+
+#defaultCanvas0 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.main {
+  padding: 35vh 50px 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 5vh;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  /* height: 300vh; */
+  z-index: 1;
+}
+.title {
+  grid-column: 1 / last;
+}
