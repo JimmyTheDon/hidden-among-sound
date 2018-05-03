@@ -22,10 +22,9 @@ body {
   z-index: -1;
 }
 .main {
-  padding: 35vh 50px 100px;
+  padding: 25vh 100px 100px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 100px, repeat(3, 1fr);
+  grid-template-columns: 480px;
   grid-column-gap: 15px;
   grid-row-gap: 15px;
   /* height: 300vh; */
@@ -33,7 +32,73 @@ body {
 }
 .title {
   grid-column: 1 / last;
+  /* text-align: center; */
 }
-p {
+p, button, a {
   line-height: 1.65em;
+  font-size: 15px;
+}
+
+p {
+  grid-column: 1;
+}
+
+.demo {
+  grid-column: 1;
+}
+textarea {
+  padding-left:0;
+  padding-top:0;
+  padding-bottom:0.4em;
+  padding-right: 0.4em;
+  width: 100%;
+  height: 15vh;
+  margin: 16px 0;
+  font-family: "Space Mono", monospace;
+  font-size: 15px;
+  background-color: transparent;
+  outline: 1px solid magenta;
+  border: 1px solid magenta;
+  color: white;
+  transition-timing-function: ease-in-out;
+  -webkit-transition: .85s; /* For Safari 3.1 to 6.0 */
+  transition: .85s;
+}
+textarea:focus {
+  outline: 1px solid white;
+  border: 1px solid white;
+}
+.download-btn, button {
+  background-color: transparent;
+  margin: 16px 0;
+  grid-column: 1;
+  text-decoration: none;
+  color: magenta;
+  padding: 15px;
+  text-align: center;
+  width: 60%;
+  border-radius: 10px;
+  border: 1px solid magenta;
+  transition-timing-function: ease-in-out;
+  -webkit-transition: .85s; /* For Safari 3.1 to 6.0 */
+  transition: .85s;
+  outline: none;
+}
+.download-btn:hover, button:hover {
+  color: black;
+  background-color: magenta;
+}
+
+@media only screen and (max-width: 680px) {
+  .main {
+    padding: 35vh 50px 0px;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  .main {
+    padding: 35vh 10px 0px;
+    grid-template-columns: auto;
+  }
+
 }

@@ -15,17 +15,17 @@ var mic, osc, soundFile;
 var currentSource = 'test';
 
 var fft;
-var binCount = 1024;
+var binCount = 2048;
 var bins = new Array(binCount);
 
-var speed = 0.85;
+var speed = 1.5;
 
 // canvas is global so we can copy it
 var cnv;
 
-function preload() {
-  soundFile = loadSound('/assets/audio/test.wav');
-}
+// function preload() {
+//   soundFile = loadSound('/assets/audio/test.wav');
+// }
 
 function setup() {
   cnv = createCanvas(windowWidth, windowHeight);
@@ -62,7 +62,7 @@ function draw() {
       value = spectrum[i];
     // }
     var c = value;
-    fill(285,c-100,c-70);
+    fill(285,c-100,c-50);
     var percent = i / spectrum.length;
     var y = percent * height;
     rect(width - speed, height - y, speed, height / spectrum.length);
@@ -97,40 +97,37 @@ function toggleInput(mode) {
   }
   switch (inputMode) {
     case 0: // soundFile mode
-      soundFile.play();
-      osc.stop();
-      mic.stop();
-      fft.setInput(soundFile);
-      currentSource = 'Soundfile';
+      // soundFile.play();
+      // osc.stop();
+      // mic.stop();
+      // fft.setInput(soundFile);
+      // currentSource = 'Soundfile';
       break;
     case 1: // mic mode
       mic.start();
-      soundFile.pause();
+      // soundFile.pause();
       fft.setInput(mic);
       currentSource = 'Mic';
-      // soundFile.play();
-      fft.setInput(soundFile);
-      currentSource = 'Soundfile';
       break;
     case 2: // sine mode
-      osc.setType('sine');
-      osc.start();
-      soundFile.pause();
-      mic.stop();
-      fft.setInput(osc);
-      currentSource = 'Sine Wave';
+      // osc.setType('sine');
+      // osc.start();
+      // soundFile.pause();
+      // mic.stop();
+      // fft.setInput(osc);
+      // currentSource = 'Sine Wave';
       break;
     case 3: // square mode
-      osc.setType('triangle');
-      currentSource = 'Triangle Wave';
+      // osc.setType('triangle');
+      // currentSource = 'Triangle Wave';
       break;
     case 4: // square mode
-      osc.setType('square');
-      currentSource = 'Square Wave';
+      // osc.setType('square');
+      // currentSource = 'Square Wave';
       break;
     case 5: // square mode
-      osc.setType('sawtooth');
-      currentSource = 'Sawtooth Wave';
+      // osc.setType('sawtooth');
+      // currentSource = 'Sawtooth Wave';
       break;
   }
 }
