@@ -33,7 +33,6 @@ function setup() {
   colorMode(HSB);
 
   // make canvas drag'n'dropablle with gotFile as the callback
-  makeDragAndDrop(cnv, gotFile);
 
   mic = new p5.AudioIn();
   osc = new p5.Oscillator();
@@ -43,6 +42,10 @@ function setup() {
   fft = new p5.FFT(smoothing, binCount);
   fft.setInput(mic);
   toggleInput(1);
+}
+
+function mouseMoved() {
+  getAudioContext().resume()
 }
 
 function draw() {
@@ -62,7 +65,7 @@ function draw() {
       value = spectrum[i];
     // }
     var c = value;
-    fill(285,c-100,c-50);
+    fill(285,c-75,c-25,0.5);
     var percent = i / spectrum.length;
     var y = percent * height;
     rect(width - speed, height - y, speed, height / spectrum.length);
@@ -87,71 +90,21 @@ function windowResized() {
 //   }
 // }
 
-var inputMode = 0;
+var inputMode = 1;
 function toggleInput(mode) {
-  if (typeof(mode) === 'number') {
-    inputMode = mode;
-  } else {
-    inputMode += 1;
-    inputMode = inputMode % 6;
-  }
-  switch (inputMode) {
-    case 0: // soundFile mode
-      // soundFile.play();
-      // osc.stop();
-      // mic.stop();
-      // fft.setInput(soundFile);
-      // currentSource = 'Soundfile';
-      break;
-    case 1: // mic mode
-      mic.start();
-      // soundFile.pause();
-      fft.setInput(mic);
-      currentSource = 'Mic';
-      break;
-    case 2: // sine mode
-      // osc.setType('sine');
-      // osc.start();
-      // soundFile.pause();
-      // mic.stop();
-      // fft.setInput(osc);
-      // currentSource = 'Sine Wave';
-      break;
-    case 3: // square mode
-      // osc.setType('triangle');
-      // currentSource = 'Triangle Wave';
-      break;
-    case 4: // square mode
-      // osc.setType('square');
-      // currentSource = 'Square Wave';
-      break;
-    case 5: // square mode
-      // osc.setType('sawtooth');
-      // currentSource = 'Sawtooth Wave';
-      break;
-  }
+  // mic mode
+  mic.start();
+  // soundFile.pause();
+  fft.setInput(mic);
+  currentSource = 'Mic';
+  console.log('Mic on');
+      
 }
 
 // var logView = true;
 // function toggleScale() {
 //   logView = !logView;
 // }
-
-// ==================
-// Handle Drag & Drop
-// ==================
-
-function makeDragAndDrop(cnv, callback) {
-  var domEl = getElement(cnv.elt.id);
-  domEl.drop(callback);
-}
-
-function gotFile(file) {
-  soundFile.dispose();
-  soundFile = loadSound(file, function() {
-    toggleInput(0);
-  });
-}
 
 
 // helper functions via

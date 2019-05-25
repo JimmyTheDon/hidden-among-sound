@@ -6,11 +6,10 @@
   <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
 
   <script language="javascript" type="text/javascript" src="assets/js/p5.min.js"></script>
-  <script language="javascript" type="text/javascript" src="assets/js/p5.dom.js"></script>
-  <script language="javascript" type="text/javascript" src="assets/js/p5.sound.js"></script>
+  <script language="javascript" type="text/javascript" src="assets/js/p5.dom.min.js"></script>
+  <script language="javascript" type="text/javascript" src="assets/js/p5.sound.min.js"></script>
   <script language="javascript" type="text/javascript" src="assets/js/main.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
-  <!-- <script language="javascript" type="text/javascript" src="../../lib/_helpers.js"></script>  -->
 
   <title>Hidden Among Sound</title>
 </head>
@@ -29,21 +28,185 @@
       <button id="convert-sound" onclick="playAudio(event)">Encrypt</button>
     </div>
     <p>
-      Click below to download a ZIP of this typeface to use. It contains the alphabet in uppercase, numbers, and a variety of special characters. More weights to come, as well as a set for radio transmission.
+      Click below to download a ZIP of this typeface to use. It contains the alphabet in uppercase, numbers, and a variety of special characters.
     </p>
     <a class="download-btn" href="assets/downloads/Hidden-Among-Sound-Alphabet.zip" download>Download RAW Audio Files</a>
   </div>
 </body>
 <script type="text/javascript">
+
 var messageString;
 var letter;
 
 function playAudio(e) {
-    messageString = document.getElementById("string-sound").value.toLowerCase();
-    letter = messageString.split('').reverse();
-    console.log(letter + "| " + letter.length);
-    parseMessage(letter.length-1);
+  messageString = document.getElementById("string-sound").value.toLowerCase();
+  letter = messageString.split('').reverse();
+  console.log(letter + " | " + letter.length);
+  parseMessage(letter.length-1);
 }
+
+// function parseMessage(i) {
+//   switch (letter[i]) {
+//     case "a":
+//       var audio = new Audio("assets/audio/letters/A.wav");
+//       audio.play();
+//       // break;
+//     case "b":
+//       var audio = new Audio("assets/audio/letters/B.wav");
+//       audio.play();
+//       break;
+//     case "c":
+//       var audio = new Audio("assets/audio/letters/C.wav");
+//       audio.play();
+//       break;
+//     case "d":
+//       var audio = new Audio("assets/audio/letters/D.wav");
+//       audio.play();
+//       break;
+//     case "e":
+//       var audio = new Audio("assets/audio/letters/E.wav");
+//       audio.play();
+//       break;
+//     case "f":
+//       var audio = new Audio("assets/audio/letters/F.wav");
+//       audio.play();
+//       break;
+//     case "g":
+//       var audio = new Audio("assets/audio/letters/G.wav");
+//       audio.play();
+//       break;
+//     case "h":
+//       var audio = new Audio("assets/audio/letters/H.wav");
+//       audio.play();
+//       break;
+//     case "i":
+//       var audio = new Audio("assets/audio/letters/I.wav");
+//       audio.play();
+//       break;
+//     case "j":
+//       var audio = new Audio("assets/audio/letters/J.wav");
+//       audio.play();
+//       break;
+//     case "k":
+//       var audio = new Audio("assets/audio/letters/K.wav");
+//       audio.play();
+//       break;
+//     case "l":
+//       var audio = new Audio("assets/audio/letters/L.wav");
+//       audio.play();
+//       break;
+//     case "m":
+//       var audio = new Audio("assets/audio/letters/M.wav");
+//       audio.play();
+//       break;
+//     case "n":
+//       var audio = new Audio("assets/audio/letters/N.wav");
+//       audio.play();
+//       break;
+//     case "o":
+//       var audio = new Audio("assets/audio/letters/O.wav");
+//       audio.play();
+//       break;
+//     case "p":
+//       var audio = new Audio("assets/audio/letters/P.wav");
+//       audio.play();
+//       break;
+//     case "q":
+//       var audio = new Audio("assets/audio/letters/Q.wav");
+//       audio.play();
+//       break;
+//     case "r":
+//       var audio = new Audio("assets/audio/letters/R.wav");
+//       audio.play();
+//       break;
+//     case "s":
+//       var audio = new Audio("assets/audio/letters/S.wav");
+//       audio.play();
+//       break;
+//     case "t":
+//       var audio = new Audio("assets/audio/letters/T.wav");
+//       audio.play();
+//       break;
+//     case "u":
+//       var audio = new Audio("assets/audio/letters/U.wav");
+//       audio.play();
+//       break;
+//     case "v":
+//       var audio = new Audio("assets/audio/letters/V.wav");
+//       audio.play();
+//       break;
+//     case "w":
+//       var audio = new Audio("assets/audio/letters/W.wav");
+//       audio.play();
+//       break;
+//     case "x":
+//       var audio = new Audio("assets/audio/letters/X.wav");
+//       audio.play();
+//       break;
+//     case "y":
+//       var audio = new Audio("assets/audio/letters/Y.wav");
+//       audio.play();
+//       break;
+//     case "z":
+//       var audio = new Audio("assets/audio/letters/Z.wav");
+//       audio.play();
+//       break;
+//     case "0":
+//       var audio = new Audio("assets/audio/numbers/0.wav");
+//       audio.play();
+//       break;
+//     case "1":
+//       var audio = new Audio("assets/audio/numbers/1.wav");
+//       audio.play();
+//       break;
+//     case "2":
+//       var audio = new Audio("assets/audio/numbers/2.wav");
+//       audio.play();
+//       break;
+//     case "3":
+//       var audio = new Audio("assets/audio/numbers/3.wav");
+//       audio.play();
+//       break;
+//     case "4":
+//       var audio = new Audio("assets/audio/numbers/4.wav");
+//       audio.play();
+//       break;
+//     case "5":
+//       var audio = new Audio("assets/audio/numbers/5.wav");
+//       audio.play();
+//       break;
+//     case "6":
+//       var audio = new Audio("assets/audio/numbers/6.wav");
+//       audio.play();
+//       break;
+//     case "7":
+//       var audio = new Audio("assets/audio/numbers/7.wav");
+//       audio.play();
+//       break;
+//     case "8":
+//       var audio = new Audio("assets/audio/numbers/8.wav");
+//       audio.play();
+//       break;
+//     case "9":
+//       var audio = new Audio("assets/audio/numbers/9.wav");
+//       audio.play();
+//       break;
+//     default:
+//       var audio = new Audio("assets/audio/special-characters/not-available.wav");
+//       audio.play();
+//       break;
+//   }
+//   i++
+//   // else {
+//   //   var audio = new Audio("assets/audio/special-characters/not-available.wav");
+//   //   audio.play();
+//   // }
+//   // if (--i > -1) {
+//   //   setTimeout(function () {
+//   //     parseMessage(i);
+//   //   }, 3250);
+//   // }
+// }
 
 function parseMessage(i) {
   if (letter[i] == "a") {
